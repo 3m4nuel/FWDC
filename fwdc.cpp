@@ -8,8 +8,6 @@
  * a Duck and Corn is also not alone in one side.
  *
  */
-#include "stdafx.h"
-
 #include <functional>
 #include <iostream>
 #include <queue>
@@ -19,7 +17,6 @@
 #include "Node.h"
 #include "Action.h"
 #include "Checks.h"
-#include "Print.h"
 
 using namespace std;
 
@@ -125,7 +122,7 @@ int main()
 
       if (frontier.size() <= 0)
       {
-         cout << "No Goal Found.";
+         cout << "No Goal Found.\n";
          return 1;
       }
 
@@ -140,7 +137,7 @@ int main()
 
       if (isEqual(expandedFrontierNode->getState(), goalState))
       {
-         cout << "Goal Found.";
+         cout << "Goal Found.\n";
          return 0;
       }
       else
@@ -155,7 +152,7 @@ int main()
             possibleChildNode = (*it)->doAction(expandedFrontierNode);
             /* If a null pointer is returned, that means the state   *
              * transition from the action is not a valid state       */
-            if (possibleChildNode == nullptr)
+            if (possibleChildNode == NULL)
             {
                continue;
             }

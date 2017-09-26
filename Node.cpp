@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Node.h"
 #include "State.h"
 
@@ -91,8 +90,17 @@ void swapNode(priority_queue<Node*, vector<Node*>, CompareNodes> frontier, Node 
       
       copiedFrontier.pop();
    }
-
-   frontier.swap(newFrontier);
+   
+   while(!frontier.empty())
+   {
+      frontier.pop();
+   }
+   
+   while(!newFrontier.empty())
+   {
+      frontier.push(newFrontier.top());
+      newFrontier.pop();
+   }
 }
 
 Node *getInitialNode()
@@ -100,7 +108,6 @@ Node *getInitialNode()
    State *initialState = getInitialState();
    Node *initialNode = new Node();
    initialNode->setState(initialState);
-   initialNode->setParentNode(NULL);
    initialNode->setActualCost(0);
    initialNode->setHeuristicCost(3);
 
