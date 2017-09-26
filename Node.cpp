@@ -100,7 +100,7 @@ Node *getInitialNode()
    State *initialState = getInitialState();
    Node *initialNode = new Node();
    initialNode->setState(initialState);
-   initialNode->setParentNode(nullptr);
+   initialNode->setParentNode(NULL);
    initialNode->setActualCost(0);
    initialNode->setHeuristicCost(3);
 

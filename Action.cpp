@@ -68,7 +68,7 @@ inline Node *getChildNode(Node *parentNode, bool isLeftSideUpdate, vector<Item> 
    State *newState = moveItemsToNewState(isLeftSideUpdate, sideToUpdate, sideToRemove, firstItemToMove, secondItemToMove);
 
    if (isInvalidState(newState))
-      return nullptr;
+      return NULL;
 
    int g = parentNode->getPathCost();
    int h = newState->getRightSide().size();
@@ -88,7 +88,7 @@ inline Node *getChildNode(Node *parentNode, bool isLeftSideUpdate, vector<Item> 
 Node *FarmerTakeWolfLeft::doAction(Node *parentNode)
 {
    if (!isMovingItemsExist(parentNode->getState()->getRightSide(), FARMER, WOLF) || parentNode->getState()->getRightSide().size() == 0)
-      return nullptr;
+      return NULL;
 
    return getChildNode(parentNode, true, parentNode->getState()->getLeftSide(), parentNode->getState()->getRightSide(), FARMER, WOLF);
 }
@@ -96,7 +96,7 @@ Node *FarmerTakeWolfLeft::doAction(Node *parentNode)
 Node *FarmerTakeWolfRight::doAction(Node *parentNode)
 {
    if (!isMovingItemsExist(parentNode->getState()->getLeftSide(), FARMER, WOLF) || parentNode->getState()->getLeftSide().size() == 0)
-      return nullptr;
+      return NULL;
 
    return getChildNode(parentNode, false, parentNode->getState()->getRightSide(), parentNode->getState()->getLeftSide(), FARMER, WOLF);
 }
@@ -104,7 +104,7 @@ Node *FarmerTakeWolfRight::doAction(Node *parentNode)
 Node *FarmerTakeDuckLeft::doAction(Node *parentNode)
 {
    if (!isMovingItemsExist(parentNode->getState()->getRightSide(), FARMER, DUCK) || parentNode->getState()->getRightSide().size() == 0)
-      return nullptr;
+      return NULL;
 
    return getChildNode(parentNode, true, parentNode->getState()->getLeftSide(), parentNode->getState()->getRightSide(), FARMER, DUCK);
 }
@@ -112,7 +112,7 @@ Node *FarmerTakeDuckLeft::doAction(Node *parentNode)
 Node *FarmerTakeDuckRight::doAction(Node *parentNode)
 {
    if (!isMovingItemsExist(parentNode->getState()->getLeftSide(), FARMER, DUCK) || parentNode->getState()->getLeftSide().size() == 0)
-      return nullptr;
+      return NULL;
 
    return getChildNode(parentNode, false, parentNode->getState()->getRightSide(), parentNode->getState()->getLeftSide(), FARMER, DUCK);
 }
@@ -120,7 +120,7 @@ Node *FarmerTakeDuckRight::doAction(Node *parentNode)
 Node *FarmerTakeCornLeft::doAction(Node *parentNode)
 {
    if (!isMovingItemsExist(parentNode->getState()->getRightSide(), FARMER, CORN) || parentNode->getState()->getRightSide().size() == 0)
-      return nullptr;
+      return NULL;
 
    return getChildNode(parentNode, true, parentNode->getState()->getLeftSide(), parentNode->getState()->getRightSide(), FARMER, CORN);
 }
@@ -128,7 +128,7 @@ Node *FarmerTakeCornLeft::doAction(Node *parentNode)
 Node *FarmerTakeCornRight::doAction(Node *parentNode)
 {
    if (!isMovingItemsExist(parentNode->getState()->getLeftSide(), FARMER, CORN) || parentNode->getState()->getLeftSide().size() == 0)
-      return nullptr;
+      return NULL;
 
    return getChildNode(parentNode, false, parentNode->getState()->getRightSide(), parentNode->getState()->getLeftSide(), FARMER, CORN);
 }
@@ -136,7 +136,7 @@ Node *FarmerTakeCornRight::doAction(Node *parentNode)
 Node *FarmerTakeHimselfLeft::doAction(Node *parentNode)
 {
    if (!isMovingItemsExist(parentNode->getState()->getRightSide(), FARMER, INVALID) || parentNode->getState()->getRightSide().size() == 0)
-      return nullptr;
+      return NULL;
 
    return getChildNode(parentNode, true, parentNode->getState()->getLeftSide(), parentNode->getState()->getRightSide(), FARMER, INVALID);
 }
@@ -144,7 +144,7 @@ Node *FarmerTakeHimselfLeft::doAction(Node *parentNode)
 Node *FarmerTakeHimselfRight::doAction(Node * parentNode)
 {
    if (!isMovingItemsExist(parentNode->getState()->getLeftSide(), FARMER, INVALID) || parentNode->getState()->getLeftSide().size() == 0)
-      return nullptr;
+      return NULL;
 
    return getChildNode(parentNode, false, parentNode->getState()->getRightSide(), parentNode->getState()->getLeftSide(), FARMER, INVALID);
 }
